@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CitedshopBot</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+<h1>CitedshopBot</h1>
+
+<h2>Qui nous sommes</h2>
+<p>Citedshop mesure si une boutique en ligne est lisible par les assistants d'IA (ChatGPT, Perplexity, Claude, Gemini, Copilot) : l'accès de leurs robots, la lecture des pages sans JavaScript, les données produit structurées, la qualité des fiches et la confiance. L'outil est en cours de développement, et ses analyses ne sont pas publiées.</p>
+
+<h2>Comment nous lisons une boutique</h2>
+<p>Une analyse est lancée pour une boutique précise. Elle lit le robots.txt, les plans du site et 100 documents au plus, jamais plus de 3 à la fois. Elle ralentit dès que la boutique ralentit ou répond 429 ou 503, et respecte <code>Retry-After</code>. Elle ne remplit aucun formulaire, ne crée aucun compte et n'ajoute rien au panier.</p>
+
+<h2>Sous quels noms</h2>
+<ul>
+<li><code>Mozilla/5.0 (compatible; CitedshopBot/1.0; +https://citedshop.com/robot)</code> pour lire les pages comme un robot ;</li>
+<li>un navigateur Chromium dont l'user-agent finit par <code>Citedshop/1.0</code>, pour voir les pages comme un visiteur ;</li>
+<li>pour tester le pare-feu, une fiche est demandée une fois sous l'user-agent exact de six robots d'IA (OAI-SearchBot, ChatGPT-User, PerplexityBot, Perplexity-User, Claude-SearchBot, Claude-User) et une fois comme un visiteur ordinaire. Ces demandes viennent de nous, pas de ces services.</li>
+</ul>
+
+<h2>Nous bloquer</h2>
+<p>Dans votre robots.txt :</p>
+<pre><code>User-agent: CitedshopBot
+Disallow: /</code></pre>
+<p>Si la page d'accueil est interdite à CitedshopBot, aucune analyse n'est faite. Les autres interdictions d'un groupe <code>CitedshopBot</code> sont aussi respectées. Les règles écrites pour tous les robots (<code>User-agent: *</code>) ne s'appliquent pas, parce qu'une personne a demandé l'analyse, comme le font ChatGPT-User et Perplexity-User.</p>
+
+<h2>Nous écrire</h2>
+<p><a href="mailto:robot@citedshop.com">robot@citedshop.com</a></p>
+
+<hr>
+
+<div lang="en">
+<h2>In English</h2>
+<p>Citedshop measures how readable an online shop is for AI assistants. The tool is in development and its analyses are not published. An analysis is run for one specific shop: it reads robots.txt, the sitemaps and at most 100 documents, never more than 3 at a time, slows down when the shop slows down or answers 429 or 503, and honours <code>Retry-After</code>. It never submits a form, creates an account or adds anything to a cart.</p>
+<p>It reads pages as <code>Mozilla/5.0 (compatible; CitedshopBot/1.0; +https://citedshop.com/robot)</code>, renders them in a Chromium browser whose user-agent ends with <code>Citedshop/1.0</code>, and tests the firewall by requesting one product page once with the exact user-agent of six AI robots (OAI-SearchBot, ChatGPT-User, PerplexityBot, Perplexity-User, Claude-SearchBot, Claude-User) and once as an ordinary visitor. These requests come from us, not from those services.</p>
+<p>To block us, add <code>User-agent: CitedshopBot</code> and <code>Disallow: /</code> to your robots.txt. Rules written for all robots (<code>User-agent: *</code>) do not apply, because a person asked for the analysis, as with ChatGPT-User and Perplexity-User. Contact: <a href="mailto:robot@citedshop.com">robot@citedshop.com</a>.</p>
+</div>
+</main>
+</body>
+</html>
